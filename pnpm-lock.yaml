@@ -118,6 +118,10 @@ importers:
         version: 4.9.5
 
   packages/one-plugin-mirror:
+    dependencies:
+      '@one/plugin':
+        specifier: workspace:*
+        version: link:../one-plugin
     devDependencies:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
