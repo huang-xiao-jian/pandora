@@ -148,6 +148,64 @@ importers:
         specifier: ^4.9.5
         version: 4.9.5
 
+  packages/one-service-impl:
+    dependencies:
+      '@one/service':
+        specifier: workspace:*
+        version: link:../one-service
+      commander:
+        specifier: ^12.0.0
+        version: 12.0.0
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
+      dotenv-expand:
+        specifier: ^11.0.6
+        version: 11.0.6
+      fs-extra:
+        specifier: ^11.2.0
+        version: 11.2.0
+      inversify:
+        specifier: ^6.0.2
+        version: 6.0.2
+      joi:
+        specifier: ^17.13.1
+        version: 17.13.1
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
+      tiny-invariant:
+        specifier: ^1.3.3
+        version: 1.3.3
+    devDependencies:
+      '@rollup/plugin-node-resolve':
+        specifier: ^15.2.3
+        version: 15.2.3(rollup@3.29.4)
+      '@swc/core':
+        specifier: ^1.3.107
+        version: 1.5.7(@swc/helpers@0.5.11)
+      '@swc/helpers':
+        specifier: ^0.5.3
+        version: 0.5.11
+      '@types/fs-extra':
+        specifier: ^11.0.4
+        version: 11.0.4
+      '@types/lodash':
+        specifier: ^4.17.4
+        version: 4.17.4
+      rollup:
+        specifier: ^3.6.0
+        version: 3.29.4
+      rollup-plugin-node-externals:
+        specifier: ^6.1.2
+        version: 6.1.2(rollup@3.29.4)
+      rollup-plugin-ts:
+        specifier: ^3.4.5
+        version: 3.4.5(@babel/core@7.24.5)(@babel/runtime@7.24.5)(@swc/core@1.5.7(@swc/helpers@0.5.11))(@swc/helpers@0.5.11)(rollup@3.29.4)(typescript@4.9.5)
+      typescript:
+        specifier: ^4.9.5
+        version: 4.9.5
+
 packages:
 
   '@ampproject/remapping@2.3.0':
