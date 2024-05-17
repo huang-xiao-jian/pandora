@@ -1,3 +1,4 @@
+import { type Command } from 'commander';
 import { type Schema } from 'joi';
 
 export interface CommandDescriptor {
@@ -28,11 +29,11 @@ export interface ConfigDescriptor<T> {
 
 export abstract class OnePluginRegistry {
   /**
-   * 注册子命令
-   */
-  abstract registerCommand(descriptor: CommandDescriptor): void;
-  /**
    * 注册配置项
    */
-  abstract registryConfigItem<T>(descriptor: ConfigDescriptor<T>): void;
+  abstract registryConfig<T>(descriptor: ConfigDescriptor<T>): void;
+  /**
+   * 注册子命令
+   */
+  abstract registerCommand(descriptor: CommandDescriptor): Command;
 }

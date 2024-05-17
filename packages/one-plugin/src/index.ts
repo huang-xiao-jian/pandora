@@ -1,43 +1,5 @@
-import { OneConfigService, OneEnvironmentService } from '@one/service';
-import { ContainerModule } from 'inversify';
-import { OneConfigFileParser } from './config/ConfigFileParser';
-import { DotenvGuardian } from './env/DotenvGuardian';
-import { DotenvParser } from './env/DotenvParser';
-import { DotenvScanner } from './env/DotenvScanner';
-import { EnvironmentServiceFactoryOptions, OneEnvironmentServiceFactory } from './env/EnvironmentFactory';
+import { OnePluginProtocol } from './Protocol';
 
-interface OneServiceModuleOptions extends EnvironmentServiceFactoryOptions {
-  /**
-   * 配置文件绝对地址
-   */
-  rcFile: string;
-}
-
-export class OneServiceModule {
-  static create(options: OneServiceModuleOptions) {
-    return new ContainerModule((bind) => {
-      // environment
-      bind(DotenvGuardian).toSelf();
-      bind(DotenvParser).toSelf();
-      bind(DotenvScanner).toSelf();
-      bind(OneEnvironmentServiceFactory).toSelf();
-      bind(OneEnvironmentService).toDynamicValue(async (context) => {
-        return context.container.get(OneEnvironmentServiceFactory).create(options);
-      });
-      // config
-      bind(OneConfigFileParser).toSelf();
-      bind(OneConfigService)
-        .toDynamicValue(async (context) => {
-          const configuration = await context.container.get(OneConfigFileParser).parse(options.rcFile);
-          const service: OneConfigService = {
-            get(key) {
-              return configuration[key] as any;
-            },
-          };
-
-          return service;
-        })
-        .inSingletonScope();
-    });
-  }
+export abstract class OnePlugin {
+  abstract apply(protocol: OnePluginProtocol): void;
 }
