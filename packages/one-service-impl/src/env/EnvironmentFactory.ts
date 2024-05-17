@@ -3,7 +3,7 @@ import { injectable } from 'inversify';
 import { assign } from 'lodash';
 import { DotenvGuardian, DotenvGuardianOptions } from './DotenvGuardian';
 import { DotenvParser } from './DotenvParser';
-import { DotenvScanOptions, DotenvScanner } from './DotenvScanner';
+import { DotenvScanner, DotenvScanOptions } from './DotenvScanner';
 
 export interface EnvironmentServiceFactoryOptions extends DotenvGuardianOptions, DotenvScanOptions {}
 
@@ -29,6 +29,9 @@ export class OneEnvironmentServiceFactory {
     const service: OneEnvironmentService = {
       get(key: string) {
         return basement[key];
+      },
+      getAll() {
+        return basement;
       },
     };
 

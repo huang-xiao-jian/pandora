@@ -1,7 +1,9 @@
+import { injectable } from 'inversify';
 import { OnePluginRegistry } from './Registry';
 import { OnePluginServices } from './Service';
 
-export interface OnePluginProtocol {
+@injectable()
+export abstract class OnePluginProtocol {
   /**
    * 核心扩展点
    */

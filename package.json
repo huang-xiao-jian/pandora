@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "setup": "husky install"
   },
   "config": {
     "commitizen": {

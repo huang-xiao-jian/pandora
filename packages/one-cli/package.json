@@ -2,22 +2,36 @@
   "name": "@one/cli",
   "version": "0.3.0",
   "description": "yet, vscode flavor architecture for pandora",
+  "keywords": [],
+  "license": "ISC",
+  "author": "jian.huang <hjj491229492@hotmail.com>",
+  "main": "./lib/index.js",
+  "bin": {
+    "one": "./bin/one.js"
+  },
   "files": [
     "lib"
   ],
   "scripts": {
-    "dev": "tsc --watch",
     "build": "tsc",
-    "clean": "rm -rf lib"
+    "clean": "rm -rf lib",
+    "dev": "tsc --watch"
   },
-  "bin": {
-    "one": "./bin/one.js"
-  },
-  "keywords": [],
-  "author": "jian.huang <hjj491229492@hotmail.com>",
-  "license": "ISC",
   "dependencies": {
+    "@abraham/reflection": "^0.12.0",
+    "@one/plugin": "workspace:*",
+    "@one/service": "workspace:*",
+    "@one/service-impl": "workspace:*",
+    "commander": "^12.0.0",
+    "cosmiconfig": "^9.0.0",
+    "fs-extra": "^11.2.0",
+    "inversify": "^6.0.2",
+    "joi": "^17.13.1",
+    "lodash": "^4.17.21",
+    "tiny-invariant": "^1.3.3"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/lodash": "^4.17.4"
   }
 }

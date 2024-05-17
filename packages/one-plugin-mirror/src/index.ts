@@ -26,8 +26,10 @@ class OnePluginMirror extends OnePlugin {
       .option('-w,--watch', 'continuous sync directory')
       .option('-d, --direction [direction]', 'the direction for continuous work', 'forward')
       .action((from: string, to: string, options: MirrorOptions) => {
+        console.group('OnePluginMirror');
         console.log('from: ', from);
         console.log('to: ', to);
+        console.groupEnd();
       });
   }
 }

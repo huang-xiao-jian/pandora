@@ -1,5 +1,6 @@
 import { type Command } from 'commander';
-import { type Schema } from 'joi';
+import { injectable } from 'inversify';
+import { type AnySchema } from 'joi';
 
 export interface CommandDescriptor {
   /**
@@ -20,13 +21,14 @@ export interface ConfigDescriptor<T> {
   /**
    * 统一配置文件属性值校验
    */
-  schema: Schema<T>;
+  schema: AnySchema<T>;
   /**
    * 统一配置文件属性默认值
    */
   default?: (rcFile: string) => T;
 }
 
+@injectable()
 export abstract class OnePluginRegistry {
   /**
    * 注册配置项

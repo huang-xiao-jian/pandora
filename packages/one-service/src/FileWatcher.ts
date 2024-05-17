@@ -1,5 +1,6 @@
 import { type WatchOptions } from 'chokidar';
 import { type Stats } from 'fs';
+import { injectable } from 'inversify';
 import { type AsyncSeriesHook } from 'tapable';
 
 export interface FileWatchDelegateHooks {
@@ -15,6 +16,7 @@ export abstract class FileWatchDelegator {
   abstract dispose(): void;
 }
 
+@injectable()
 export abstract class FileWatcher {
   abstract watch(paths: string | string[], options?: WatchOptions): FileWatchDelegator;
 }
