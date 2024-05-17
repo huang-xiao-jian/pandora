@@ -1,0 +1,23 @@
+{
+  "name": "@one/cli",
+  "version": "0.3.0",
+  "description": "yet, vscode flavor architecture for pandora",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "clean": "rm -rf lib"
+  },
+  "bin": {
+    "one": "./bin/one.js"
+  },
+  "keywords": [],
+  "author": "jian.huang <hjj491229492@hotmail.com>",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
