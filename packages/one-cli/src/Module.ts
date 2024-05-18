@@ -5,11 +5,11 @@ import { cosmiconfig } from 'cosmiconfig';
 import { Container } from 'inversify';
 import path from 'path';
 import invariant from 'tiny-invariant';
-import { OnePluginProtocolImpl } from './adaptor/Protocol';
-import { OnePluginRegistryImpl } from './adaptor/Registry';
-import { OnePluginServicesImpl } from './adaptor/Services';
 import { OneConfigFileParser } from './config/ConfigFileParser';
 import { OneConfigServiceImpl } from './config/ConfigService';
+import { OnePluginProtocolImpl } from './plugin-bridge/Protocol';
+import { OnePluginRegistryImpl } from './plugin-bridge/Registry';
+import { OnePluginServicesImpl } from './plugin-bridge/Services';
 import { OnePluginConnector } from './plugin-support/PluginConnector';
 import { OnePluginLoader } from './plugin-support/PluginLoader';
 import { OnePluginRunner } from './plugin-support/PluginRunner';
@@ -28,7 +28,7 @@ export class OneModule {
     container.bind(OneConfigFileParser).toSelf();
     container.bind(OneConfigFile).toDynamicValue(async (context) => {
       const explorer = cosmiconfig('one', {
-        searchPlaces: [`package.json`, `.onerc`, `.onerc.json`],
+        searchPlaces: [`.onerc`, `.onerc.json`],
       });
       const discovery = await explorer.search();
 
