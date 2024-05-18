@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf lib",
+    "clean": "rimraf dist",
     "dev": "tsc --watch"
   },
   "dependencies": {
