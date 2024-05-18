@@ -1,5 +1,5 @@
 import { injectable } from 'inversify';
-import { OnePluginRegistryImpl } from '../adaptor/Registry';
+import { OnePluginRegistryImpl } from '../plugin-bridge/Registry';
 
 @injectable()
 export class OnePluginRunner {
