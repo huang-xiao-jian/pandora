@@ -9,6 +9,6 @@ export class OnePluginRunner {
    * TODO - 命令存在检测
    */
   async run(cmd: string) {
-    await this.registry.commands[cmd]?.parseAsync();
+    await this.registry.commands[cmd]?.parseAsync(process.argv.slice(1));
   }
 }
