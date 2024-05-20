@@ -56,7 +56,7 @@ export class OneModule {
 
     // ignition
     container.bind(OnePluginRegistryImpl).toSelf();
-    container.bind(OnePluginServices).toService(OnePluginServicesImpl);
+    container.bind(OnePluginServices).to(OnePluginServicesImpl);
     container.bind(OnePluginRegistry).toService(OnePluginRegistryImpl);
     container.bind(OnePluginProtocol).to(OnePluginProtocolImpl);
     container.bind(OnePluginLoader).toSelf();
