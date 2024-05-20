@@ -46,17 +46,17 @@ export class OneModule {
     // service impl
     container.load(
       OneServiceModule.create({
+        // TODO - 暂定约定与配置文件同级
+        root: path.dirname(configFile.rcFile),
         mode: options.mode,
         rcFile: configFile.rcFile,
         prefixes: ['NODE_', 'ONE_'],
-        // TODO - 暂定约定与配置文件同级
-        dir: path.dirname(configFile.rcFile),
       }),
     );
 
     // ignition
     container.bind(OnePluginRegistryImpl).toSelf();
-    container.bind(OnePluginServices).to(OnePluginServicesImpl);
+    container.bind(OnePluginServices).toService(OnePluginServicesImpl);
     container.bind(OnePluginRegistry).toService(OnePluginRegistryImpl);
     container.bind(OnePluginProtocol).to(OnePluginProtocolImpl);
     container.bind(OnePluginLoader).toSelf();

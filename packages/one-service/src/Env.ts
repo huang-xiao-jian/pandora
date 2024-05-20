@@ -8,7 +8,7 @@ export interface WellknownEnvironment {
   /**
    * 命令执行路径
    */
-  dirname: string;
+  cwd: string;
 }
 
 @injectable()

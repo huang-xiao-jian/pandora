@@ -7,8 +7,8 @@ export class OnePluginLoader {
    * TODO - 支持灵活的模块，支持入参
    */
   load(pkgName: string): OnePlugin {
-    const OnePlugin = require(pkgName);
+    const OnePluginImpl = require(pkgName);
 
-    return new OnePlugin();
+    return new OnePluginImpl();
   }
 }

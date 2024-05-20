@@ -21,8 +21,8 @@ export class OneEnvironmentServiceFactory {
     const basement = this.dotenvParser.parse(env, contents);
     // 添加通用型环境变量
     const wellknown: WellknownEnvironment = {
-      root: options.dir,
-      dirname: process.cwd(),
+      root: options.root,
+      cwd: process.cwd(),
     };
     assign(basement, wellknown);
 

@@ -5,6 +5,8 @@ import { type AsyncSeriesHook } from 'tapable';
 
 export interface FileWatchDelegateHooks {
   add: AsyncSeriesHook<[filepath: string, stat?: Stats]>;
+  unlink: AsyncSeriesHook<[filepath: string, stat?: Stats]>;
+  change: AsyncSeriesHook<[filepath: string, stat?: Stats]>;
 }
 
 export abstract class FileWatchDelegator {

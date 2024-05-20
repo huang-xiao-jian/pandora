@@ -7,7 +7,7 @@ export interface DotenvScanOptions {
   /**
    * 使用绝对路径，.env 文件相对目录
    */
-  dir: string;
+  root: string;
   /**
    * .env.${mode}
    */
@@ -20,7 +20,7 @@ export class DotenvScanner {
     // TODO - validate options
     const candidates: string[] = ['.env', '.env.local', `.env.${options.mode}`, `.env.${options.mode}.local`];
     const filepaths = filter(
-      map(candidates, (name) => path.resolve(options.dir, name)),
+      map(candidates, (name) => path.resolve(options.root, name)),
       (filepath) => fse.pathExistsSync(filepath),
     );
     const contents = await Promise.all(map(filepaths, (filepath) => fse.readFile(filepath)));
